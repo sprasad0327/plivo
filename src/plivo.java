@@ -11,7 +11,7 @@ public class plivo {
 
 		System.setProperty("WebDriver.chrome.driver", "/Users/swadesh.prasad/eclipse-workspace/Introduction/chromedriver");
  
-		// try running it in firefox
+	
 		
 		WebDriver driver = new ChromeDriver();
 
@@ -29,14 +29,13 @@ public class plivo {
 		driver.findElement(By.partialLinkText("Messaging")).click();
 		Thread.sleep(3000);
 
-		//Send SMS Connection
 
 		WebElement From=driver.findElements(By.xpath("//li[@class='module-item ui-widget-content ui-corner-all module-item-green ui-draggable']")).get(2);
 
 		Actions act=new Actions(driver);
 		act.dragAndDropBy(From, 550, 50).build().perform();
 
-// convert thread sleep into explicit wait
+
 		Thread.sleep(3000);
 		From = driver.findElements(By.xpath("//div[@class='syn-node ui-draggable syn-node-active']")).get(1);
 		WebElement To = driver.findElement(By.xpath("//div[@class='syn-receptor ui-droppable syn-receptor-north ui-draggable syn-receptor-draggable']"));
@@ -50,7 +49,7 @@ public class plivo {
 		//Send Email connection
  
 		From=driver.findElements(By.xpath("//li[@class='module-item ui-widget-content ui-corner-all module-item-green ui-draggable']")).get(1);
-	// make a function for drang and drop and pass three things,  weblement, x offset and y offset)
+	
 		act.dragAndDropBy(From, 800, 200).build().perform();
 		
 		Thread.sleep(3000);
@@ -72,7 +71,9 @@ public class plivo {
 		driver.findElements(By.xpath("//textarea[@name='message_phrase[]']")).get(2).sendKeys("Test Message 1");
 
 		driver.findElement(By.partialLinkText("Basic")).click();
-		Thread.sleep(3000);
+		Thread.sleep(3000); // we can also use explicit wait
+		
+	
 		
 		for (int i = 300; i<1200; i=i+400)
 		 { 
@@ -80,7 +81,7 @@ public class plivo {
 			 act.dragAndDropBy(From, i, 400).build().perform();
 		 }
 		
-		// convert these 4 statements in two, for east and west
+		
 
 		Thread.sleep(3000);
 		From = driver.findElements(By.xpath("//div[@class='syn-node syn-node-attached-w ui-draggable syn-node-active']")).get(0);
